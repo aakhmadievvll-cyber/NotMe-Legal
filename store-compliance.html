@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Store compliance notes — Not Me!</title><link rel="stylesheet" href="styles.css"></head>
+<body><main><nav><a href="./">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="store-compliance.html">Store compliance notes</a></nav>
+<section class="card">
+<h1>Store compliance notes</h1>
+<p class="muted">A record of what was declared in the store forms for this app, and the reason behind each answer. This is an internal reference, not legal advice.</p>
+
+<h2>URLs used in App Store Connect</h2>
+<ul>
+<li><strong>Privacy Policy URL:</strong> <a href="privacy.html">privacy.html</a></li>
+<li><strong>Support URL:</strong> <a href="support.html">support.html</a></li>
+<li><strong>Terms of Use:</strong> <a href="terms.html">terms.html</a> (the app uses Apple's standard EULA; these terms sit alongside it)</li>
+</ul>
+
+<h2>App Privacy — "Data Not Collected"</h2>
+<p>The app declares that it collects no data at all. This is not a simplification: the app target contains no networking code whatsoever — no <code>URLSession</code>, no web view, no <code>openURL</code>, no request of any kind — and no third-party SDK. Everything the app stores stays in the app's own container on the device.</p>
+<p>What is stored locally, and nowhere else:</p>
+<ul>
+<li><strong>UserDefaults:</strong> reveal mode (hold or tap), haptics on/off, night-table dark mode, the "show 18+ packs" switch, and the ids of the last six game modes played.</li>
+<li><strong>SwiftData:</strong> packs the player creates themselves — the pack title and the card texts they type. There is no share, export, upload or sync path for them.</li>
+</ul>
+
+<h2>Privacy manifest (PrivacyInfo.xcprivacy)</h2>
+<ul>
+<li><code>NSPrivacyTracking</code>: <code>false</code></li>
+<li><code>NSPrivacyTrackingDomains</code>: empty</li>
+<li><code>NSPrivacyCollectedDataTypes</code>: empty</li>
+<li><code>NSPrivacyAccessedAPITypes</code>: <code>NSPrivacyAccessedAPICategoryUserDefaults</code> with reason <code>CA92.1</code> — the app reads and writes only its own preferences.</li>
+</ul>
+
+<h2>Sensors and permissions</h2>
+<p>The app requests no permissions. The only sensor it touches is CoreMotion device motion, used in the "Who am I?" mode where the phone is held to the forehead and tilted to answer. Readings are used live to detect the tilt; nothing is stored and nothing is transmitted. No camera, microphone, photos, contacts, location or health data.</p>
+
+<h2>Age rating — 16+</h2>
+<p>Answers given in Apple's seven-step questionnaire on 14 September 2026:</p>
+<ul>
+<li>Step 1 — parental controls, age assurance, unrestricted web access, user-generated content shared with others, social networking, messaging or chat, advertising: <strong>No</strong> to all.</li>
+<li>Step 2 — profanity or crude humour: <strong>infrequent/mild</strong>; horror or fear themes: <strong>infrequent/mild</strong>; alcohol, tobacco or drugs: <strong>infrequent/mild</strong>.</li>
+<li>Step 3 — medical or treatment-focused content, health or wellness topics: <strong>none / no</strong>.</li>
+<li>Step 4 — mature or suggestive themes: <strong>frequent/intense</strong>; sexual content: <strong>infrequent/mild</strong>; graphic sexual content and nudity: <strong>none</strong>.</li>
+<li>Step 5 — cartoon or fantasy violence, realistic violence, weapons: <strong>infrequent/mild</strong>; prolonged graphic or sadistic violence: <strong>none</strong>.</li>
+<li>Step 6 — simulated gambling, contests, real-money gambling, loot boxes: <strong>none / no</strong>.</li>
+<li>Step 7 — no manual rating override.</li>
+</ul>
+<p>Apple's calculated result: <strong>16+</strong> in 173 countries and regions, <strong>A18</strong> in Brazil, <strong>15+</strong> in the Republic of Korea. Only Afghanistan is excluded from sale.</p>
+<p>On frequency of alcohol references: 237 of the app's 10,189 cards mention alcohol or tobacco (2.3%). The densest single pack is 36%, and no pack is built around drinking. Nothing in the app requires a player to drink and every card can be skipped.</p>
+
+<h2>The 18+ filter is not a parental control</h2>
+<p>Packs marked 18+ are hidden on a fresh install and are revealed by a switch in settings. There is no passcode and no age check, so the switch was declared as a content filter and never as a parental control. The age rating answers describe the app's full contents, not its default state.</p>
+
+<h2>No monetisation</h2>
+<p>Free app. No StoreKit, no in-app purchases, no subscriptions, no ads, no ad SDK, no analytics, no crash reporting.</p>
+</section><footer>Not Me! legal pages. Last updated: September 14, 2026.</footer></main></body></html>
