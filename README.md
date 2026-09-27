@@ -34,7 +34,7 @@ English:
 | Platform | iOS 26.0+, iPhone and iPad |
 | Price | Free; optional auto-renewable subscription Not Me! Plus (AI themes); no ads |
 | Age rating | 16+ |
-| Developer | ИП Ахмадиев Альберт Маратович |
+| Developer | Akhmadiev Albert IE |
 
 ## Editing
 
