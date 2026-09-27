@@ -1,10 +1,12 @@
 # Not Me! — Legal & Support
 
 Public legal and support pages for **Not Me! Offline Party Games** («Не Я!»), a free
-offline pass-and-play party game for iPhone and iPad.
+offline pass-and-play party game for iPhone and iPad, with optional AI themes by
+subscription (Не Я! Плюс / Not Me! Plus) since version 1.2.
 
-The app has no accounts, no ads, no analytics and no networking code at all, so these
-pages say exactly that — they are not a generic template.
+The games have no accounts, no ads, no analytics and never touch the network. The only
+online feature is the optional AI theme generator (version 1.2+), and the privacy policy
+describes exactly what it sends and keeps — these pages are not a generic template.
 
 ## Live pages
 
@@ -30,7 +32,7 @@ English:
 | Bundle ID | `com.alba.SpyBest` |
 | Apple ID | `6762642879` |
 | Platform | iOS 26.0+, iPhone and iPad |
-| Price | Free, no in-app purchases, no ads |
+| Price | Free; optional auto-renewable subscription Not Me! Plus (AI themes); no ads |
 | Age rating | 16+ |
 | Developer | ИП Ахмадиев Альберт Маратович |
 

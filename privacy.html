@@ -5,26 +5,26 @@
 <section class="card">
 <h1>Privacy Policy</h1>
 
-<p><strong>Effective date: September 14, 2026.</strong></p>
+<p><strong>Effective date: September 27, 2026.</strong></p>
 
-<p>This policy covers the iOS app <strong>Not Me! Offline Party Games</strong>, published in Russian as «Не Я!». Bundle id <code>com.alba.SpyBest</code>, version 1.1, iPhone and iPad, iOS 26.0 or later. The app is published by ИП Ахмадиев Альберт Маратович, a sole proprietor registered in Russia; "we" on this page means that developer. A Russian version of this page is at <a href="privacy-ru.html">privacy-ru.html</a>.</p>
+<p>This policy covers the iOS app <strong>Not Me! Offline Party Games</strong>, published in Russian as «Не Я!». Bundle id <code>com.alba.SpyBest</code>, iPhone and iPad, iOS 26.0 or later. It describes version 1.2 and later; versions 1.0 and 1.1 contain no network code at all, so everything below about AI themes does not apply to them. The app is published by ИП Ахмадиев Альберт Маратович, a sole proprietor registered in Russia; "we" on this page means that developer. A Russian version of this page is at <a href="privacy-ru.html">privacy-ru.html</a>.</p>
 
 <h2>Summary</h2>
 
 <ul>
-  <li>The app collects no data. Nothing about you is sent anywhere.</li>
+  <li>All 22 games and all 121 built-in packs are free and work fully offline, including in Airplane Mode. Playing them sends nothing anywhere.</li>
   <li>There is no account, no sign-up, no login and no profile.</li>
-  <li>There is no network code in the app at all. It makes no requests and works completely in Airplane Mode.</li>
-  <li>There is no server, no backend and no cloud sync.</li>
-  <li>There are no ads, no ad SDK, no analytics, no crash reporting and no third-party SDK of any kind.</li>
-  <li>There are no in-app purchases and no subscriptions. The app is free.</li>
-  <li>Everything the app saves — your settings and the packs you write yourself — stays on your device.</li>
-  <li>The App Store listing shows <strong>Data Not Collected</strong>. This page says the same thing in longer form.</li>
+  <li>There are no ads, no ad SDK, no analytics, no crash reporting, no tracking and no third-party SDK. Nothing is sold, and nothing is used for advertising.</li>
+  <li>The app has one online feature, and it is optional: <strong>AI themes</strong>, part of the <strong>Не Я! Плюс / Not Me! Plus</strong> subscription, with one free theme per Apple Account. If you never open the AI theme screens, the app never contacts our server.</li>
+  <li>When you create an AI theme, your description of the theme is sent to our server and from there to an AI provider — Google (Gemini API, USA), or OpenAI (USA) as a fallback — only to create the theme. Apple-signed proof of your download or subscription and your IP address reach our server with the request.</li>
+  <li>Our server does not keep your description, your name, your e-mail address or your Apple Account ID. It keeps keyed hashes of Apple transaction identifiers, a record of each recent generation for the fair-use limits, the finished theme for 72 hours (its title and words can repeat words from your description), and short technical logs that never contain your description.</li>
+  <li>Your AI themes, the packs you write yourself and your settings are stored on your device.</li>
+  <li>Subscriptions are sold and billed by Apple. We never see your payment details.</li>
 </ul>
 
 <h2>What the app stores on your device, and why</h2>
 
-<p>The app saves two kinds of data. Both are stored only on your device, inside the app's own storage container.</p>
+<p>Everything below is stored only on your device, inside the app's own storage container.</p>
 
 <p><strong>Settings.</strong> These are kept in the standard iOS preferences store (<code>UserDefaults</code>) so that the app opens the way you left it:</p>
 
@@ -33,14 +33,60 @@
   <li>haptic feedback (vibration) on or off;</li>
   <li>night-table dark mode on or off;</li>
   <li>show 18+ packs on or off;</li>
-  <li>the ids of the last 6 game modes you played, so the app remembers what you played last.</li>
+  <li>the ids of the last 6 game modes you played, so the app remembers what you played last;</li>
+  <li>whether you agreed to send theme descriptions to the AI provider (see below);</li>
+  <li>whether your free AI theme is still available, as last reported by our server, and whether an App Store purchase is waiting for approval (for example, Ask to Buy);</li>
+  <li>while an AI theme is being created: the description, the language and a random request id, so that an interrupted generation can be finished. This record is removed once the theme is saved, and it is not used after 72 hours.</li>
 </ul>
 
-<p>These are interface switches. They contain no name, e-mail address, phone number, device identifier or advertising identifier.</p>
+<p>None of these contain your name, e-mail address, phone number, device identifier or advertising identifier.</p>
 
-<p><strong>Packs you create yourself.</strong> If you make your own pack, the pack title and the card texts you type are saved locally in the app's on-device database (SwiftData). There is no share, export, upload or sync path for this content. It never leaves your device and is never visible to any other user. What you type is up to you. It stays on the device you typed it on, so the only people who can read it are the people you hand that device to.</p>
+<p><strong>Packs you create yourself.</strong> If you make your own pack, the pack title and the card texts you type are saved locally in the app's on-device database (SwiftData). There is no share, export, upload or sync path for this content. It never leaves your device and is never visible to any other user.</p>
 
-<p>The app's privacy manifest matches this: <code>NSPrivacyTracking</code> is <code>false</code>, there are no tracking domains, the list of collected data types is empty, and the one declared API category is <code>UserDefaults</code> with reason <code>CA92.1</code> — accessing information from the app itself only.</p>
+<p><strong>AI themes.</strong> A theme you create is saved in the same on-device database: its title, its icon, the description you typed, and the generated words, locations and word pairs. Themes stay on your device after a subscription ends. They are not uploaded, synced or shared.</p>
+
+<p>The app's privacy manifest matches this page: <code>NSPrivacyTracking</code> is <code>false</code> and there are no tracking domains. It declares four collected data types, all used only for app functionality and none for tracking: Other User Content (the theme description), Purchase History (Apple's purchase proofs), User ID (Apple's transaction identifiers) and Product Interaction (our server's record of when you created a theme and whether it worked). They are declared as linked to you because our server ties them to a pseudonymous purchase identifier, even though it never learns who you are. The one declared API category is <code>UserDefaults</code> with reason <code>CA92.1</code> — accessing information from the app itself only.</p>
+
+<h2>AI themes: what is sent, to whom, and why</h2>
+
+<p><strong>When the app goes online.</strong> Only after you open the AI theme screens (the theme studio or the Not Me! Plus screen): to check whether your free theme is still available or your subscription is active, and to create a theme when you tap "Create theme" or "Create free — once". If a generation was interrupted — for example, you closed the app — the app may send the same request again later, including right after the next launch, to finish it or to fetch the finished theme. Before it starts a new theme while an older one is unfinished, it first asks our server whether the older one is already done. The games themselves never use the network.</p>
+
+<p><strong>Your agreement first.</strong> Before the first description is sent, the app shows a screen that names the AI provider and asks for your agreement. You can withdraw it at any time in Settings with the "Send descriptions to AI" switch; after that the app sends no descriptions.</p>
+
+<p><strong>What our server receives with a request:</strong></p>
+
+<ul>
+  <li><strong>Your description of the theme</strong> (up to 300 characters) and the app language, Russian or English. Describe a topic; do not include personal information about yourself or anyone else.</li>
+  <li><strong>Apple-signed proofs.</strong> The app transaction, which Apple issues when an Apple Account gets the app: it contains an identifier that is unique to that Apple Account and this app (not your Apple Account ID itself), the app version and dates. If you subscribe, also your subscription transaction: the plan, purchase and expiry dates, transaction identifiers and the store country. These proofs contain no name, e-mail address, Apple Account ID or payment details. We check Apple's signature on them to decide whether you still have the free theme or an active subscription.</li>
+  <li><strong>Your IP address</strong>, as with any internet connection. We use it only to limit how many requests one address can make.</li>
+  <li><strong>A random request id</strong> made by the app, so that a repeated request is not processed or counted twice.</li>
+</ul>
+
+<p><strong>What the AI provider receives.</strong> Our server sends your description and the language, wrapped in our instructions, to Google's Gemini API (Google, USA). If Gemini is unavailable, the same text may be sent to OpenAI (USA) instead. The provider receives no identifiers, no purchase information and not your IP address — the request comes from our server. The provider processes the text under the terms of its API service in order to return the theme. We do not use your description or your themes to train AI models.</p>
+
+<p><strong>Where our server is.</strong> A virtual server in London, United Kingdom, rented and operated by the developer.</p>
+
+<h2>What our server keeps, and for how long</h2>
+
+<p>An automatic clean-up runs every 10 minutes and deletes each record below once its period is over.</p>
+
+<ul>
+  <li><strong>Keyed hashes of Apple identifiers.</strong> The server turns Apple's app-transaction and subscription transaction identifiers into keyed hashes (HMAC-SHA-256 with a secret key) and stores only the hashes, never the identifiers. With them it keeps:
+    <ul>
+      <li>the free-theme record — whether the one free theme for that Apple Account has been used, and how many of its 3 attempts were made. It is kept for as long as the service runs; without it the free theme could be claimed again and again;</li>
+      <li>refund and revocation records from Apple, kept for as long as the service runs, so that a refunded subscription stops working;</li>
+      <li>a record of each recent generation — when it happened, whether it was free or with Plus, and whether it produced a theme — for the fair-use limits (10 generations a day, 30 in any 30 days). Each record is deleted 30 days after the generation.</li>
+    </ul>
+  </li>
+  <li><strong>The finished theme, for 72 hours</strong> — or, if the request was refused, the short reason shown to you. It is kept with a keyed hash of the request — not the description itself — so that an interrupted generation can be recovered without being counted twice. Then the clean-up deletes it. A theme's title and words, or a refusal reason, can repeat words from your description; if the AI gives no title, the title is made from the first words of your description.</li>
+  <li><strong>Short technical logs</strong>: time, result, which model was used, how long it took, what it cost and, for a generation, a short pseudonymous id — the first 12 characters of the keyed hash of your Apple identifier — so that the lines of one request can be connected. They never contain your description, the theme, Apple's proofs or raw identifiers. Your IP address is not written to the database; it may appear in these logs, which are size-limited, overwritten automatically and not archived.</li>
+  <li><strong>Service-wide totals</strong> — spending per month — with no link to any user.</li>
+  <li><strong>Backups.</strong> Encrypted daily backups of the server database are kept for up to 16 days on the server and for up to 90 days on a separate backup server in the Netherlands, also operated by the developer. A backup holds what the database held when it was made — for example a theme still within its 72 hours, or a recent generation record — and keeps it until the backup itself is deleted. Deleted records are overwritten in the database, so a backup never contains what was deleted before it was made. Backups are used only to restore the service.</li>
+</ul>
+
+<h2>Purchases and Apple</h2>
+
+<p>Not Me! Plus is an auto-renewable subscription sold through the App Store. Apple processes the payment and manages your Apple Account under <a href="https://www.apple.com/legal/privacy/">Apple's privacy policy</a>. We never receive your name, e-mail address, Apple Account ID or payment details. Apple also sends our server notifications about subscription events such as renewals and refunds; we verify them and keep only the keyed hash of a refunded or revoked transaction, the date, and the notification's id, kept for 30 days so that it is not processed twice.</p>
 
 <h2>Device motion in "Who am I?"</h2>
 
@@ -54,23 +100,32 @@
 
 <h2>What the app does not access</h2>
 
-<p>The app does not use the camera, the microphone, your photos, your contacts, your location or any health data. It does not track you across apps or websites, and it has nothing to track you with, because it makes no network requests at all.</p>
+<p>The app does not use the camera, the microphone, your photos, your contacts, your location or any health data. It does not track you across apps or websites and has no advertising identifier.</p>
 
-<h2>No sharing, no selling, no third parties</h2>
+<h2>Who receives data</h2>
 
-<p>There is no data sharing of any kind. Nothing is sold, rented, licensed or disclosed to anyone, and there are no third parties involved in the app at all: no advertising networks, no analytics providers, no crash reporters, no data brokers, no embedded SDKs. This is not a promise about how carefully data is handled. There is no data leaving your device to handle.</p>
+<p>Only the services needed to create AI themes: Google (Gemini API) and, as a fallback, OpenAI receive the text of your description; the companies we rent servers from host our server in the United Kingdom and our backups in the Netherlands. Apple handles purchases. Nothing is sold, rented or disclosed to advertisers, data brokers or analytics companies. We would disclose data only if the law required it.</p>
 
-<h2>Retention and deletion</h2>
+<p>Data therefore leaves your country: our server is in the United Kingdom, the AI providers process text in the USA, and backups are kept in the Netherlands.</p>
 
-<p>Your settings and your own packs stay on your device for as long as the app is installed. Deleting the app, or clearing its data, removes all of it from the device. The app keeps no second copy of it anywhere.</p>
+<h2>Legal bases (UK and EU users)</h2>
 
-<p>You can also delete your own packs from inside the app: Settings has a <strong>Delete my packs</strong> button, with a confirmation step. It appears once you have created at least one pack of your own. Deleting them this way is permanent too.</p>
+<p>We process this data to provide the AI themes you ask for, your free theme and your subscription (performance of a contract), and to keep the service working fairly and securely — rate limits, fair-use limits, preventing repeated free themes and honouring refunds (legitimate interests). The agreement the app asks for before the first description is sent comes on top of this.</p>
 
-<p>Because there is no account and no server, we cannot access, identify, export or delete your data remotely. We never receive it, so there is no copy on our side to delete, and there is nothing useful to send a deletion request about. For the same reason we cannot restore packs you have deleted — we hold no backup of them.</p>
+<h2>Retention, deletion and your choices</h2>
+
+<ul>
+  <li>If you never use AI themes, nothing about you ever reaches us.</li>
+  <li>You can withdraw your agreement to send descriptions in Settings at any time.</li>
+  <li>In Settings you can delete your own packs and, separately, your AI themes; each asks for confirmation and is permanent. Deleting the app, or clearing its data, removes everything stored on the device. We keep no copy of your packs or your themes and cannot restore them.</li>
+  <li>Deleting the app does not cancel a subscription. Manage or cancel it in your Apple Account settings (Settings → your name → Subscriptions).</li>
+  <li>Server data is deleted on the schedule above. You can ask what we hold about you, or ask us to delete it, by writing to the address below. Because our server does not know your name or e-mail address, we may not be able to find your records from them; tell us what you need and we will explain what we can do. We may keep the free-theme and refund records described above, because they are needed to keep the free theme to one per Apple Account and to honour refunds.</li>
+  <li>If you are in the UK or the EU, you may also complain to your data-protection authority (in the UK, the ICO).</li>
+</ul>
 
 <h2>Children</h2>
 
-<p>This is a general-audience party game, rated 16+ on the App Store. It is not directed at children. No data is collected from anyone, at any age, so no children's personal data is collected either. There are no ads, no tracking, and no way to contact other people through the app.</p>
+<p>This is a general-audience party game, rated 16+ on the App Store. It is not directed at children, and AI themes are not meant to be used by children. We do not knowingly collect data from children; if you believe a child has sent us a description, write to us and we will help. There are no ads, no tracking, and no way to contact other people through the app.</p>
 
 <h2>The 18+ content filter</h2>
 
@@ -80,9 +135,9 @@
 
 <h2>Changes to this policy</h2>
 
-<p>If a future version of the app changes what it stores or what it does, this page is updated and the effective date at the top changes with it. If any version ever sends data off the device, this page will describe exactly what is sent and why.</p>
+<p>If a future version of the app changes what it stores or what it sends, this page is updated before that version ships, and the effective date at the top changes with it.</p>
 
 <h2>Contact</h2>
 
-<p>Privacy questions go to <a href="mailto:InnoAppDesign@yandex.com">InnoAppDesign@yandex.com</a>. You can also use the <a href="https://forms.gle/f4DUfvcd97iUuqW68">support form</a> or open an issue on <a href="https://github.com/aakhmadievvll-cyber/NotMe-Legal/issues">GitHub</a>. See also <a href="support.html">support.html</a> and <a href="terms.html">terms.html</a>.</p>
-</section><footer>Not Me! legal pages. Last updated: September 14, 2026.</footer></main></body></html>
+<p>Privacy questions and requests go to <a href="mailto:InnoAppDesign@yandex.com">InnoAppDesign@yandex.com</a>. You can also use the <a href="https://forms.gle/f4DUfvcd97iUuqW68">support form</a> or open an issue on <a href="https://github.com/aakhmadievvll-cyber/NotMe-Legal/issues">GitHub</a> (GitHub issues are public — keep personal information out of them). See also <a href="support.html">support.html</a> and <a href="terms.html">terms.html</a>.</p>
+</section><footer>Not Me! legal pages. Last updated: September 27, 2026.</footer></main></body></html>
