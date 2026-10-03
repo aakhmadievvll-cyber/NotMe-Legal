@@ -3,7 +3,7 @@
 <body><main><nav><a href="./">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="store-compliance.html">Store compliance notes</a></nav>
 <section class="card">
 <h1>Store compliance notes</h1>
-<p class="muted">A record of what is declared in the store forms for this app, and the reason behind each answer. This is an internal reference, not legal advice. Updated for version 1.2, which adds optional AI themes and the Not Me! Plus subscription.</p>
+<p class="muted">A record of what is declared in the store forms for this app, and the reason behind each answer. This is an internal reference, not legal advice. Updated for version 1.3, which adds five games and makes Not Me! Plus open premium bundled packs as well as AI themes; version 1.2 added optional AI themes and the subscription.</p>
 
 <h2>URLs used in App Store Connect</h2>
 <ul>
@@ -12,11 +12,15 @@
 <li><strong>Terms of Use:</strong> Apple's standard <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Licensed Application EULA</a>, linked from the App Store description and from the subscription screen in the app, plus <a href="terms.html">terms.html</a>, which sits alongside it.</li>
 </ul>
 
+<h2>What changed in version 1.3</h2>
+<p>27 game modes (new: Insider, Fake Artist, One Clue, Mind Meld, Paranoia), 164 bundled packs and 12,962 cards, in Russian and English. The existing Not Me! Plus subscription (Plus Monthly, Plus Yearly) now unlocks premium bundled packs in addition to AI themes, and both plans still unlock the same things. 13 bundled packs, one for every kind of game, are always free, so every game can be played for free; one premium pack of each kind is free each day; packs the player writes and AI themes they already created stay free. The other 151 bundled packs need Plus. In the Russian storefront every bundled pack is free, because App Store purchases are unavailable there; AI themes need Plus everywhere.</p>
+<p>Pack access is decided on the device from StoreKit entitlements; it never sends a request to the developer's server. Opening the subscription screen from a locked pack does not contact the server either — only the AI theme screens and the Not Me! Plus entry in Settings do. No new network use, no new third parties, no analytics. The only new data are kept on the device, in UserDefaults: the player names typed for the last game, to prefill the next one (they never leave the device), and the subscription end date the App Store last reported, so premium packs stay open for up to 3 days offline.</p>
+
 <h2>What changed in version 1.2</h2>
 <p>Versions 1.0 and 1.1 had no networking code at all and were declared "Data Not Collected". Version 1.2 keeps all 22 games and 121 packs free and offline, and adds one optional online feature: AI themes. A player describes a topic; the app sends the description with Apple-signed StoreKit proofs to the developer's server, which checks the free theme or the subscription and asks an AI provider (Google Gemini API, fallback OpenAI) to build the theme. The app contacts the server only after the player opens the AI theme screens. No gateway or provider key is in the app.</p>
 
-<h2>App Privacy — version 1.2</h2>
-<p>"Do you or your third-party partners collect data from this app?" — <strong>Yes</strong>. Four data types, each used only for <strong>App Functionality</strong>, each <strong>linked to the user</strong>, none used for tracking:</p>
+<h2>App Privacy — versions 1.2 and 1.3</h2>
+<p>Version 1.3 changes none of these answers: no new data type, no new collection. "Do you or your third-party partners collect data from this app?" — <strong>Yes</strong>. Four data types, each used only for <strong>App Functionality</strong>, each <strong>linked to the user</strong>, none used for tracking:</p>
 <ul>
 <li><strong>User Content → Other User Content:</strong> the theme description the player types (up to 300 characters). It is sent to the AI provider only to create the theme. The server keeps the finished theme for 72 hours for recovery, not the description; the theme's title can repeat the description's first words.</li>
 <li><strong>Purchases → Purchase History:</strong> the Apple-signed app transaction and subscription transactions, verified to decide free theme versus subscription.</li>
@@ -24,9 +28,9 @@
 <li><strong>Usage Data → Product Interaction:</strong> the server's record of each generation — hashed identifier, time, free or Plus, whether it produced a theme — kept 30 days for the fair-use limits, plus the lifetime count of free attempts (at most 3). Log lines carry the first 12 characters of the hashed identifier.</li>
 </ul>
 <p>Why "linked": the description and the purchase data arrive in one request and are tied to a pseudonymous purchase identifier on the server, even though the server never learns a name, e-mail or Apple Account ID. The IP address is used only for rate limiting and is not declared as a separate type. No ads, no analytics, no crash reporting, no third-party SDK.</p>
-<p>Everything else still stays on the device: settings in UserDefaults, player-made packs and AI themes in SwiftData, with no share, export, upload or sync path.</p>
+<p>Everything else still stays on the device: settings in UserDefaults (since 1.3 also the player names from the last game and the last subscription end date reported by the App Store), player-made packs and AI themes in SwiftData, with no share, export, upload or sync path.</p>
 
-<h2>Privacy manifest (PrivacyInfo.xcprivacy) — version 1.2</h2>
+<h2>Privacy manifest (PrivacyInfo.xcprivacy) — versions 1.2 and 1.3</h2>
 <ul>
 <li><code>NSPrivacyTracking</code>: <code>false</code></li>
 <li><code>NSPrivacyTrackingDomains</code>: empty</li>
@@ -36,8 +40,8 @@
 
 <h2>Subscription — Not Me! Plus</h2>
 <ul>
-<li>One subscription group, two auto-renewable plans at the same level: <strong>Plus Monthly</strong> (US $3.00) and <strong>Plus Yearly</strong> (US $10.00). Other prices are set by the App Store from the US price. Both plans unlock exactly the same feature.</li>
-<li>No introductory offer. The free try is the developer's own: one AI theme per Apple Account, with up to 3 attempts, enforced on the server. Family Sharing off.</li>
+<li>One subscription group, two auto-renewable plans at the same level: <strong>Plus Monthly</strong> (US $3.00) and <strong>Plus Yearly</strong> (US $10.00). Other prices are set by the App Store from the US price. Both plans unlock exactly the same things: every premium bundled pack (151 of 164) and creating AI themes. Subscription description since 1.3: "All packs plus your own AI themes" / «Все темы и свои темы с помощью ИИ».</li>
+<li>No introductory offer. The free tier is the developer's own: for packs, the 13 always-free packs and one free premium pack of each kind a day, decided on the device; for AI themes, one theme per Apple Account, with up to 3 attempts, enforced on the server. Family Sharing off.</li>
 <li>Fair use for subscribers: up to 10 generations a day (UTC) and 30 in any 30 days, stated in the Terms of Use and on the subscription screen.</li>
 <li>The subscription screen shows each plan's name and billed price as the most prominent price text, the auto-renew terms, "Restore purchases", and links to the Terms of Use (EULA) and the Privacy Policy.</li>
 <li>Before the first description is sent, the app asks for explicit agreement and names Google (Gemini API, USA) and OpenAI (USA). The agreement can be withdrawn in Settings.</li>
@@ -59,12 +63,12 @@
 <li>Step 7 — no manual rating override.</li>
 </ul>
 <p>Apple's calculated result: <strong>16+</strong> in 173 countries and regions, <strong>A18</strong> in Brazil, <strong>15+</strong> in the Republic of Korea. Only Afghanistan is excluded from sale.</p>
-<p>On frequency of alcohol references: 237 of the app's 10,189 cards mention alcohol or tobacco (2.3%). The densest single pack is 36%, and no pack is built around drinking. Nothing in the app requires a player to drink and every card can be skipped.</p>
+<p>On frequency of alcohol references: when the questionnaire was answered, 237 of the app's 10,189 cards (versions 1.0–1.2, 121 packs) mentioned alcohol or tobacco (2.3%). The densest single pack was 36%, and no pack was built around drinking. Version 1.3 has 164 packs and 12,962 cards. Nothing in the app requires a player to drink and every card can be skipped.</p>
 <p>AI themes (version 1.2) are generated for one player, stay on that player's device and cannot be shared, so they are not user-generated content shared with others. Generation runs under a content policy for a 16+ party game that refuses sexual content, anything sexual involving minors, slurs and hate, targeting private individuals, instructions for harm and extremist content.</p>
 
 <h2>The 18+ filter is not a parental control</h2>
 <p>Packs marked 18+ are hidden on a fresh install and are revealed by a switch in settings. There is no passcode and no age check, so the switch was declared as a content filter and never as a parental control. The age rating answers describe the app's full contents, not its default state.</p>
 
 <h2>Monetisation</h2>
-<p>The app is free to download, and every game and bundled pack is free. The only purchase is the optional Not Me! Plus auto-renewable subscription for AI themes, sold through StoreKit. No ads, no ad SDK, no analytics, no crash reporting.</p>
-</section><footer>Not Me! legal pages. Last updated: September 27, 2026.</footer></main></body></html>
+<p>The app is free to download, and every game is free to play: 13 bundled packs, one for every kind of game, are always free, plus one premium pack of each kind each day. The only purchase is the optional Not Me! Plus auto-renewable subscription, sold through StoreKit, which unlocks the other 151 bundled packs and AI themes. In the Russian storefront every bundled pack is free. No ads, no ad SDK, no analytics, no crash reporting.</p>
+</section><footer>Not Me! legal pages. Last updated: October 3, 2026.</footer></main></body></html>
