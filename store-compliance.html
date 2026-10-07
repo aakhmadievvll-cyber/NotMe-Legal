@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Store compliance notes — Not Me!</title><link rel="stylesheet" href="styles.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Store compliance notes — Game Night</title><link rel="stylesheet" href="styles.css"></head>
 <body><main><nav><a href="./">Home</a><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms</a><a href="support.html">Support</a><a href="store-compliance.html">Store compliance notes</a></nav>
 <section class="card">
 <h1>Store compliance notes</h1>
-<p class="muted">A record of what is declared in the store forms for this app, and the reason behind each answer. This is an internal reference, not legal advice. Updated for version 1.3, which adds five games and makes Not Me! Plus open premium bundled packs as well as AI themes; version 1.2 added optional AI themes and the subscription.</p>
+<p class="muted">A record of what is declared in the store forms for this app, and the reason behind each answer. This is an internal reference, not legal advice. Updated for version 1.3, which adds five games and makes Game Night Plus open premium bundled packs as well as AI themes; version 1.2 added optional AI themes and the subscription.</p>
 
 <h2>URLs used in App Store Connect</h2>
 <ul>
@@ -13,8 +13,8 @@
 </ul>
 
 <h2>What changed in version 1.3</h2>
-<p>27 game modes (new: Insider, Fake Artist, One Clue, Mind Meld, Paranoia), 164 bundled packs and 12,962 cards, in Russian and English. The existing Not Me! Plus subscription (Plus Monthly, Plus Yearly) now unlocks premium bundled packs in addition to AI themes, and both plans still unlock the same things. 13 bundled packs, one for every kind of game, are always free, so every game can be played for free; one premium pack of each kind is free each day; packs the player writes and AI themes they already created stay free. The other 151 bundled packs need Plus. In the Russian storefront every bundled pack is free, because App Store purchases are unavailable there; AI themes need Plus everywhere.</p>
-<p>Pack access is decided on the device from StoreKit entitlements; it never sends a request to the developer's server. Opening the subscription screen from a locked pack does not contact the server either — only the AI theme screens and the Not Me! Plus entry in Settings do. No new network use, no new third parties, no analytics. The only new data are kept on the device, in UserDefaults: the player names typed for the last game, to prefill the next one (they never leave the device), and the subscription end date the App Store last reported, so premium packs stay open for up to 3 days offline.</p>
+<p>27 game modes (new: Insider, Fake Artist, One Clue, Mind Meld, Paranoia), 164 bundled packs and 12,962 cards, in Russian and English. The existing Game Night Plus subscription (Plus Monthly, Plus Yearly) now unlocks premium bundled packs in addition to AI themes, and both plans still unlock the same things. 13 bundled packs, one for every kind of game, are always free, so every game can be played for free; one premium pack of each kind is free each day; packs the player writes and AI themes they already created stay free. The other 151 bundled packs need Plus. In the Russian storefront every bundled pack is free, because App Store purchases are unavailable there; AI themes need Plus everywhere.</p>
+<p>Pack access is decided on the device from StoreKit entitlements; it never sends a request to the developer's server. Opening the subscription screen from a locked pack does not contact the server either — only the AI theme screens and the Game Night Plus entry in Settings do. No new network use, no new third parties, no analytics. The only new data are kept on the device, in UserDefaults: the player names typed for the last game, to prefill the next one (they never leave the device), and the subscription end date the App Store last reported, so premium packs stay open for up to 3 days offline.</p>
 
 <h2>What changed in version 1.2</h2>
 <p>Versions 1.0 and 1.1 had no networking code at all and were declared "Data Not Collected". Version 1.2 keeps all 22 games and 121 packs free and offline, and adds one optional online feature: AI themes. A player describes a topic; the app sends the description with Apple-signed StoreKit proofs to the developer's server, which checks the free theme or the subscription and asks an AI provider (Google Gemini API, fallback OpenAI) to build the theme. The app contacts the server only after the player opens the AI theme screens. No gateway or provider key is in the app.</p>
@@ -38,7 +38,7 @@
 <li><code>NSPrivacyAccessedAPITypes</code>: <code>NSPrivacyAccessedAPICategoryUserDefaults</code> with reason <code>CA92.1</code> — the app reads and writes only its own preferences.</li>
 </ul>
 
-<h2>Subscription — Not Me! Plus</h2>
+<h2>Subscription — Game Night Plus</h2>
 <ul>
 <li>One subscription group, two auto-renewable plans at the same level: <strong>Plus Monthly</strong> (US $3.00) and <strong>Plus Yearly</strong> (US $10.00). Other prices are set by the App Store from the US price. Both plans unlock exactly the same things: every premium bundled pack (151 of 164) and creating AI themes. Subscription description since 1.3: "All packs plus your own AI themes" / «Все темы и свои темы с помощью ИИ».</li>
 <li>No introductory offer. The free tier is the developer's own: for packs, the 13 always-free packs and one free premium pack of each kind a day, decided on the device; for AI themes, one theme per Apple Account, with up to 3 attempts, enforced on the server. Family Sharing off.</li>
@@ -70,5 +70,5 @@
 <p>Packs marked 18+ are hidden on a fresh install and are revealed by a switch in settings. There is no passcode and no age check, so the switch was declared as a content filter and never as a parental control. The age rating answers describe the app's full contents, not its default state.</p>
 
 <h2>Monetisation</h2>
-<p>The app is free to download, and every game is free to play: 13 bundled packs, one for every kind of game, are always free, plus one premium pack of each kind each day. The only purchase is the optional Not Me! Plus auto-renewable subscription, sold through StoreKit, which unlocks the other 151 bundled packs and AI themes. In the Russian storefront every bundled pack is free. No ads, no ad SDK, no analytics, no crash reporting.</p>
-</section><footer>Not Me! legal pages. Last updated: October 3, 2026.</footer></main></body></html>
+<p>The app is free to download, and every game is free to play: 13 bundled packs, one for every kind of game, are always free, plus one premium pack of each kind each day. The only purchase is the optional Game Night Plus auto-renewable subscription, sold through StoreKit, which unlocks the other 151 bundled packs and AI themes. In the Russian storefront every bundled pack is free. No ads, no ad SDK, no analytics, no crash reporting.</p>
+</section><footer>Game Night legal pages. Last updated: October 7, 2026.</footer></main></body></html>

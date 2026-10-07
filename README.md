@@ -1,8 +1,8 @@
-# Not Me! — Legal & Support
+# Game Night — Legal & Support
 
-Public legal and support pages for **Not Me! Offline Party Games** («Не Я!»), a free
+Public legal and support pages for **Game Night: Group Party Games** («Посиделки»), a free
 offline pass-and-play party game for iPhone and iPad, with optional AI themes by
-subscription (Не Я! Плюс / Not Me! Plus) since version 1.2. Since version 1.3 the
+subscription (Посиделки Плюс / Game Night Plus) since version 1.2. Since version 1.3 the
 subscription also opens the premium bundled packs; 13 packs, one for every kind of game,
 stay free, so every game is playable for free.
 
@@ -29,12 +29,12 @@ English:
 
 | | |
 |---|---|
-| App name | Not Me! Offline Party Games |
-| Russian name | Не Я! — игры для компании |
+| App name | Game Night: Group Party Games |
+| Russian name | Посиделки: игры для компании |
 | Bundle ID | `com.alba.SpyBest` |
 | Apple ID | `6762642879` |
 | Platform | iOS 26.0+, iPhone and iPad |
-| Price | Free; optional auto-renewable subscription Not Me! Plus (premium packs and AI themes); no ads |
+| Price | Free; optional auto-renewable subscription Game Night Plus (premium packs and AI themes); no ads |
 | Age rating | 16+ |
 | Developer | Akhmadiev Albert IE |
 
