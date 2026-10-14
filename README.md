@@ -3,8 +3,9 @@
 Public legal and support pages for **Game Night: Group Party Games** («Посиделки»), a free
 offline pass-and-play party game for iPhone and iPad, with optional AI themes by
 subscription (Посиделки Плюс / Game Night Plus) since version 1.2. Since version 1.3 the
-subscription also opens the premium bundled packs; 13 packs, one for every kind of game,
-stay free, so every game is playable for free.
+subscription also opens the premium bundled packs; 15 packs, one for every kind of game,
+stay free, so every game is playable for free. Version 1.6 adds three quiz games built on
+public data; their sources and dataset licences are credited in the app and in the Terms.
 
 The games have no accounts, no ads, no analytics and never touch the network. The only
 online feature is the optional AI theme generator (version 1.2+), and the privacy policy
