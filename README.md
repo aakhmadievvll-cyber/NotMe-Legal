@@ -6,9 +6,11 @@ subscription (Посиделки Плюс / Game Night Plus) since version 1.2. 
 subscription also opens the premium bundled packs; 15 packs, one for every kind of game,
 stay free, so every game is playable for free. Version 1.6 adds three quiz games built on
 public data; their sources and dataset licences are credited in the app and in the Terms.
+Version 1.7 lets the subscription (and one free set per Apple Account) create questions
+for those quiz games with AI; their numbers and popularity are labelled as the AI's estimate.
 
 The games have no accounts, no ads, no analytics and never touch the network. The only
-online feature is the optional AI theme generator (version 1.2+), and the privacy policy
+online feature is the optional AI generator (themes since 1.2, quiz questions since 1.7), and the privacy policy
 describes exactly what it sends and keeps — these pages are not a generic template.
 
 ## Live pages
@@ -35,7 +37,7 @@ English:
 | Bundle ID | `com.alba.SpyBest` |
 | Apple ID | `6762642879` |
 | Platform | iOS 26.0+, iPhone and iPad |
-| Price | Free; optional auto-renewable subscription Game Night Plus (premium packs and AI themes); no ads |
+| Price | Free; optional auto-renewable subscription Game Night Plus (premium packs, AI themes and AI questions); no ads |
 | Age rating | 16+ |
 | Developer | Akhmadiev Albert IE |
 
