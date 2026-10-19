@@ -119,9 +119,9 @@
 
 <p><strong>What PostHog does not get.</strong> Our PostHog project discards the IP address of each connection, and the app turns off PostHog's location lookup from it (GeoIP). There is no session replay, no screen recording, no automatic capture of taps or screens, no crash or error reporting and no surveys. We do not use the events for advertising and do not combine them with data from other companies' apps or websites; this is not tracking, and the app does not ask for permission to track.</p>
 
-<p><strong>Offline.</strong> Events wait on the device and are sent in batches when a connection is available; no game ever waits for them. When the app starts, PostHog's library may also download our project's settings from PostHog; that request carries no events and no install id.</p>
+<p><strong>Offline.</strong> Events wait on the device and are sent in batches when a connection is available; no game ever waits for them. While statistics are on, PostHog's library also downloads our project's settings from PostHog when the app starts; that request carries no events and no install id. While they are off, the app does not contact PostHog at all.</p>
 
-<p><strong>Switching it off.</strong> With "Anonymous statistics" off, the app records and sends no new events and forgets the install id; events recorded before you switched it off may still be sent with the next batch. Switching it back on starts a new install id that is not connected to the old one.</p>
+<p><strong>Switching it off.</strong> Switching "Anonymous statistics" off stops PostHog's library at once and deletes its data from the device — the install id and any events not sent yet. From then on the app records nothing and does not contact PostHog. Events sent before stay with PostHog for the period below. Switching it back on starts a new install id that is not connected to the old one.</p>
 
 <p><strong>How long PostHog keeps events.</strong> For our project's retention period — up to one year — after which PostHog deletes them. Because the events carry no name or contact details, we cannot look them up by who you are. If you want your events deleted, switch statistics off (that resets the install id) and write to us with roughly when you used the app and your device model; we will delete the matching events we can find.</p>
 
